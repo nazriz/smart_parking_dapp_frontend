@@ -9,10 +9,12 @@ import {
     GET_AVAILABLE_SPOTS,
     PARKING_SPOT_MINTED,
     PARKING_SPOT_PERMITTED_TIMES,
+    MINTED_BY_ADDRESS,
 } from "../constants/subgraphQueries"
+import NFTBoxAvailability from "../components/NFTBoxAvailability"
 
 export default function Home() {
-    const { isWeb3Enabled, chainId } = useMoralis()
+    const { isWeb3Enabled, chainId, account } = useMoralis()
     const chainString = chainId ? parseInt(chainId).toString() : "31337"
     const marketPlaceAddress = networkMapping[chainString].NftMarketplace[0]
 
@@ -24,8 +26,8 @@ export default function Home() {
         availableSpotsList.push(tokenId)
     })
 
-    const { loading, data: spot_times } = useQuery(PARKING_SPOT_PERMITTED_TIMES, {
-        variables: { input: { tokenId: availableSpotsList } },
+    const { loading, data: minted_by_address } = useQuery(MINTED_BY_ADDRESS, {
+        variables: { input: { owner: account } },
     })
 
     const { data: minted_spots } = useQuery(PARKING_SPOT_MINTED)
@@ -38,23 +40,20 @@ export default function Home() {
     })
     return (
         <div className="container mx-auto">
-            <h1 className="py-4 px-4 font-bold text-2xl">Available Parking Spots</h1>
+            <h1 className="py-4 px-4 font-bold text-2xl">Parking Tokens Owned by You:</h1>
             <div className="flex flex-wrap">
                 {isWeb3Enabled ? (
-                    loading || !spot_times ? (
+                    loading || !minted_by_address ? (
                         <div>Loading...</div>
                     ) : (
-                        spot_times?.parkingSpotPermittedTimes.map((times) => {
-                            console.log(times)
-                            const { tokenId, startHour, endHour } = times
+                        minted_by_address?.parkingSpotMinteds.map((spots) => {
+                            const { tokenId } = spots
 
                             // console.log(`NFT TOKEN ID: ${tokenId}`)
                             return (
                                 <div>
-                                    <NFTBox
+                                    <NFTBoxAvailability
                                         tokenId={tokenId}
-                                        startHour={startHour}
-                                        endHour={endHour}
                                         spotOwner={spotOwners[tokenId]}
                                     />
                                 </div>

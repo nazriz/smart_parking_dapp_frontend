@@ -1,0 +1,420 @@
+[
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "bool",
+                "name": "available",
+                "type": "bool"
+            }
+        ],
+        "name": "ParkingSpotAvailable",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "bool",
+                "name": "inUse",
+                "type": "bool"
+            }
+        ],
+        "name": "ParkingSpotInUse",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint8",
+                "name": "startHour",
+                "type": "uint8"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint8",
+                "name": "startMinute",
+                "type": "uint8"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint8",
+                "name": "endHour",
+                "type": "uint8"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint8",
+                "name": "endMinute",
+                "type": "uint8"
+            }
+        ],
+        "name": "ParkingSpotPermittedTime",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "pricePerHour",
+                "type": "uint256"
+            }
+        ],
+        "name": "ParkingSpotPricePerHour",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_parking_spot_id",
+                "type": "uint256"
+            }
+        ],
+        "name": "checkParkingSpotTimezone",
+        "outputs": [
+            {
+                "internalType": "uint8[2]",
+                "name": "",
+                "type": "uint8[2]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_parking_spot_id",
+                "type": "uint256"
+            }
+        ],
+        "name": "checkSpotAvailability",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_parking_spot_id",
+                "type": "uint256"
+            }
+        ],
+        "name": "checkSpotPermittedParkingEndTime",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_parking_spot_id",
+                "type": "uint256"
+            }
+        ],
+        "name": "checkSpotPermittedParkingStartTime",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "parkingSpotTimeZone",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "permittedParkingTime",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "startHour",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "startMinute",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "endHour",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "endMinute",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "pricePerHour",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_parking_spot_id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_isNegative",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_timezone",
+                "type": "uint8"
+            }
+        ],
+        "name": "setParkingSpotTimezone",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_pricePerHour",
+                "type": "uint256"
+            }
+        ],
+        "name": "setPricePerHour",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_requestParkingSpotTokenAddress",
+                "type": "address"
+            }
+        ],
+        "name": "setRequestParkingSpotTokenAddress",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_parking_spot_id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "_availability",
+                "type": "bool"
+            }
+        ],
+        "name": "setSpotAvailability",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "_inUse",
+                "type": "bool"
+            }
+        ],
+        "name": "setSpotInUse",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_parking_spot_id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_start_hour",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_start_minute",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_end_hour",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_end_minute",
+                "type": "uint8"
+            }
+        ],
+        "name": "setSpotPermittedParkingTime",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "spotInUse",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "spot_available",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
