@@ -1,7 +1,4 @@
 
-
-Developed for the completion of minor thesis component (FIT5210), Monash University, Master of Cybersecurity
-
 Forked from: https://github.com/PatrickAlphaC/nextjs-nft-marketplace-thegraph-fcc
 
 Not possible without the help and reosurces provided by Patrick Collins (https://github.com/PatrickAlphaC)
