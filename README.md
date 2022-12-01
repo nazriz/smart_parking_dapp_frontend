@@ -1,7 +1,7 @@
 
 Forked from: https://github.com/PatrickAlphaC/nextjs-nft-marketplace-thegraph-fcc
 
-Not possible without the help and reosurces provided by Patrick Collins (https://github.com/PatrickAlphaC)
+Not possible without the help and resources provided by Patrick Collins (https://github.com/PatrickAlphaC)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
